@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Sample"
+             x:Class="Sample.MainPage"
+             xmlns:listview="clr-namespace:Syncfusion.ListView.XForms;assembly=Syncfusion.SfListView.XForms"
+             xmlns:busyIndicator="clr-namespace:Syncfusion.SfBusyIndicator.XForms;assembly=Syncfusion.SfBusyIndicator.XForms">
+
+    <ContentPage.BindingContext>
+        <local:ViewModel x:Name="viewModel"/>
+    </ContentPage.BindingContext>
+
+    <Grid>
+        <listview:SfListView x:Name="listView" 
+                             ItemsSource="{Binding ContactInfo}" 
+                             ItemSize="110">
+            <listview:SfListView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Label Text="{Binding Name}" FontAttributes="Bold"/>
+                        <Label Text="{Binding ContactNumber}"/>
+                    </StackLayout>
+                </DataTemplate>
+            </listview:SfListView.ItemTemplate>
+        </listview:SfListView>
+
+        <busyIndicator:SfBusyIndicator x:Name="busyIndicator" 
+                                       AnimationType="SingleCircle" 
+                                       IsBusy="{Binding IsLoading, Mode=TwoWay}" 
+                                       TextColor="Magenta"
+                                       ViewBoxWidth="50"
+                                       ViewBoxHeight="50"/>
+    </Grid>
+</ContentPage>
