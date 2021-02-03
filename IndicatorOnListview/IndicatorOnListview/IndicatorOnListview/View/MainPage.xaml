@@ -13,7 +13,7 @@
     <Grid>
         <listview:SfListView x:Name="listView" 
                              ItemsSource="{Binding ContactInfo}" 
-                             ItemSize="110">
+                             AutoFitMode="Height">
             <listview:SfListView.ItemTemplate>
                 <DataTemplate>
                     <StackLayout>
